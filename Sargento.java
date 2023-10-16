@@ -1,28 +1,25 @@
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class Sargento {
-
-    String nome;
+    private String nome;
     private int numero;
-    private int TempoServico;
-    private Tenente imediato;
-    private ArrayList<Cabo> subordinados;
+    private int tempoServico;
+    private Cabo imediato;
 
-    public Sargento(String nome, int numero, int TempoServico) {
+    public Sargento(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
-        this.TempoServico = 3;
-        this.subordinados = new ArrayList<>();
+        this.tempoServico = 0;
     }
 
-    public int getINumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public Tenente getImediato() {
+    public Cabo getImediato() {
         return imediato;
     }
 
@@ -30,19 +27,34 @@ public class Sargento {
         return nome;
     }
 
-    public List<Cabo> getSubordinados() {
-        return Collections.unmodifiableList(subordinados);
-    }
-
     public int getTempoServico() {
         return tempoServico;
     }
 
-    public void addSubordinados(Cabo cabo) {
-        cabo1.imediato(this);
-        if (!this.subordinados.contains(cabo)) {
-            subordinados.add(cabo);
-        }
+    public void incrementarTempoServico() {
+        tempoServico++;
+    }
 
+    // TODO fazer remoção de subordinado na troca do imediato
+    public void setImediato(Tenente imediato) {
+        if (!(Objects.equals(this.imediato, imediato))) {
+            this.imediato = imediato;
+            //this.imediato.addSubordinado(this);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Sargento sargento = (Sargento) o;
+        return numero == sargento.numero && Objects.equals(nome, sargento.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, numero);
     }
 }

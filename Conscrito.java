@@ -1,26 +1,25 @@
-import java.util.List;
-import java.util.Colletions;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class Conscrito {
     private String nome;
     private int numero;
-    private int TempoServico;
-    private Soldado imediato;
-   
+    private int tempoServico;
+    private Cabo imediato;
 
-    private Conscrito(String nome, int numero, int TempoServico) {
+    public Conscrito(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
-        this.TempoServico = 0;
+        this.tempoServico = 0;
     }
 
-    public int getINumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public Soldado getImediato() {
+    public Cabo getImediato() {
         return imediato;
     }
 
@@ -29,20 +28,33 @@ public class Conscrito {
     }
 
     public int getTempoServico() {
-        return TempoServico;
+        return tempoServico;
     }
 
-    public void incremetarTempoServico() {
-        TempoServico ++;
+    public void incrementarTempoServico() {
+        tempoServico++;
     }
 
-    public void setSImediato(Soldado imediato) {
+    // TODO fazer remoção de subordinado na troca do imediato
+    public void setImediato(Cabo imediato) {
         if (!(Objects.equals(this.imediato, imediato))) {
             this.imediato = imediato;
-           this.imediato.addSubordinados(conscrito);
+            //this.imediato.addSubordinado(this);
         }
     }
 
-    public void nome(String string, int i, int j) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Conscrito conscrito = (Conscrito) o;
+        return numero == conscrito.numero && Objects.equals(nome, conscrito.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, numero);
     }
 }

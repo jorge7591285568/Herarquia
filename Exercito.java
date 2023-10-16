@@ -15,46 +15,46 @@ public class Exercito {
     private static final char[] subordinados = null;
 
     public static void main(String[] args) {
-   
+
         Conscrito conscrito = new conscrito();
-        conscrito.nome("jorge", 1,0);
-        Soldado soldado1 = new soldado();
-        soldado1.nome = ("jorge1", 2, 1);
-        Cabo cabo1 = new cabo();
-        cabo1.nome = ("jorge2", 3, 2);
-        Sargento sargento1 = new sargento();
-        sargento1.nome = ("jorge3", 4 ,3);
-        Tenente tenente1 = new tenente();
-        tenente1.nome =("jorge4", 5, 4);
-        Capitao capitao1 = new capitao();
-        capitao1.nome = ("jorge5", 6,5);
+        conscrito.nome("Soldado: jorge", 1, 0);
+        Soldado soldado = new soldado();
+        soldado.nome("Cabo: jorge1", 2, 1);
+        Cabo cabo = new cabo();
+        cabo.nome("Sargento: jorge2", 3, 2);
+        Sargento sargento = new sargento();
+        sargento.nome("Tenente: jorge3", 4, 3);
+        Tenente tenente = new tenente();
+        tenente.nome("Capitao: jorge4", 5, 4);
+        Capitao capitao = new capitao();
+        capitao.nome("O proprio Capitao: jorge4", 6, 5);
 
-        soldado1.addsubordinados(conscrito);
-        cabo1.addsubordinados(soldado1);
-        sargento1.addsubordinados(cabo1);
-        tenente1.addSubordinados(sargento1);
-        capitao1.addsubordinados(tenente1);
-
-        conscrito.addImediato(soldado1);
-        soldado1.addImediato(cabo1);
-        cabo1.addImediato(sargento1);
-        sargento1.addImediato(tenente1);
-        tenente1.addImediato(capitao1);
-
-        System.out.println("O imediato do conscrito é o "+ conscrito.getnome+ " é o o Soldado " +soldado1.getimediato.getnome());
-        System.out.println("O imediato do soldado é o "+ soldado1.getnome+ " é o o cabo " +cabo1.getimediato.getnome());
-        System.out.println("O imediato do cabo é o "+ cabo1.getnome+ " é o o sargento" +sargento1.getimediato.getnome());
-        System.out.println("O imediato do sargento é o "+ sargento1.getnome+ " é o o tenente " + tenente1.getimediato.getnome());
-        System.out.println("O imediato do tenente é o "+ tenente1.getnome+ " é o o capitao " +capitao1.getimediato.getnome());
         
+        /*soldado.addsubordinados(conscrito);
+        cabo.addsubordinados(soldado);
+        sargento.addsubordinados(cabo);
+        tenente.addSubordinados(sargento);
+        capitao.addsubordinados(tenente);*/
+         
 
+        conscrito.addImediato(soldado);
+        soldado.addImediato(cabo);
+        cabo.addImediato(sargento);
+        sargento.addImediato(tenente);
+        tenente.addImediato(capitao);
 
-       System.out.println(subordinados);
-       
+        System.out.println(
+                "O imediato do conscrito é o " + conscrito.getnome + " é o Soldado " + soldado.getimediato.getnome());
+        System.out.println("O imediato do soldado é o " + soldado.getnome + " é o  cabo " + cabo.getimediato.getnome());
+        System.out.println("O imediato do cabo é o " + cabo.getnome + " é o sargento" + sargento.getimediato.getnome());
+        System.out.println(
+                "O imediato do sargento é o " + sargento.getnome + " é o tenente " + tenente.getimediato.getnome());
+        System.out.println(
+                "O imediato do tenente é o " + tenente.getnome + " é o capitao " + capitao.getimediato.getnome());
 
-       
+        System.out.println(subordinados);
+
     }
 
-    //private void addsubordinados(Conscrito conscrito) {
-        // TODO
-    }
+
+}

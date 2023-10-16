@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Collections;
 
 public class Tenente {
-    String nome;
+    private String nome;
     private int numero;
     private int TempoServico;
     private Capitao imediato;
@@ -17,7 +17,7 @@ public class Tenente {
         this.subordinados = new ArrayList<>();
     }
 
-    public int getINumero() {
+    public int getNumero() {
         return numero;
     }
 
@@ -34,14 +34,27 @@ public class Tenente {
     }
 
     public int getTempoServico() {
-        return tempoServico ++;
+        return TempoServico;
     }
 
-    public void addSubordinados(Sargento imediato) {
-        sargento1.imediato(this);
-        if (!this.subordinados.contains(imediato)) {
-            subordinados.add(imediato);
+    public void setImediato(Sargento imediato) {
+        if (!(Objects.equals(this.imediato, imediato))) {
+          this.imediato = imediato;
+          //this.imediato.addsubordinados(imediato);
         }
+      }
+       @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Tenente tenente = (Tenente) o;
+        return numero == tenente.numero && Objects.equals(nome, tenente.nome);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, numero);
     }
 }

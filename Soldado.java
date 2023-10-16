@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Collections;
 
 public class Soldado {
-    String nome;
+    private String nome;
     private int numero;
     private int TempoServico;
     private Cabo imediato;
@@ -17,7 +17,7 @@ public class Soldado {
         this.subordinados = new ArrayList<>();
     }
 
-    public int getINumero() {
+    public int getNumero() {
         return numero;
     }
 
@@ -37,10 +37,24 @@ public class Soldado {
         return Collections.unmodifiableList(subordinados);
     }
 
-
     public void setImediato(Cabo imediato) {
-        if (!this.subordinados.contains(imediato)) {
-            subordinados.add(imediato);
+        if (!(Objects.equals(this.imediato, imediato))) {
+            this.imediato = imediato;
+            //this.imediato.addsubordinados(imediato);
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Soldado soldado = (Soldado) o;
+        return numero == soldado.numero && Objects.equals(nome, soldado.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, numero);
     }
 }
