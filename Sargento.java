@@ -9,7 +9,7 @@ public class Sargento {
     private int tempoServico;
     private Cabo imediato;
 
-    public Sargento(String nome, int numero) {
+    public Sargento(String nome, int numero, int tempoServico) {
         this.nome = nome;
         this.numero = numero;
         this.tempoServico = 0;
@@ -55,6 +55,6 @@ public class Sargento {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, numero);
+        return Objects.hash(nome, numero, tempoServico);
     }
 }

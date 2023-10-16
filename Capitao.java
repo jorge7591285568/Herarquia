@@ -37,7 +37,7 @@ public class Capitao {
     public void setImediato(Tenente imediato, Object object) {
         if (!(Objects.equals(object, imediato))) {
           this.imediato = imediato;
-          ((Object) this.imediato).addsubordinados(imediato);
+          //((Object) this.imediato).addsubordinados(imediato);
         }
       }
 
@@ -63,11 +63,11 @@ public class Capitao {
         if (o == null || getClass() != o.getClass())
             return false;
     Capitao capitao = (Capitao) o;
-        return numero == capitao.numero && Objects.equals(nome, ca´pitao.nome);
+        return numero == capitao.numero && Objects.equals(nome, capitao.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, numero);
+        return Objects.hash(nome, numero, TempoServico);
     }
 }

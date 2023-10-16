@@ -27,7 +27,7 @@ public class Exercito {
         Tenente tenente = new tenente();
         tenente.nome("Capitao: jorge4", 5, 4);
         Capitao capitao = new capitao();
-        capitao.nome("O proprio Capitao: jorge4", 6, 5);
+        capitao.imediato("O proprio Capitao: jorge4", 6, 5);
 
         
         /*soldado.addsubordinados(conscrito);

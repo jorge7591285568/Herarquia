@@ -41,7 +41,7 @@ public class Cabo {
   public void setImediato(Sargento imediato) {
     if (!(Objects.equals(this.imediato, imediato))) {
       this.imediato = imediato;
-      this.imediato.addsubordinados(imediato);
+      //this.imediato.addsubordinados(imediato);
     }
   }
   @Override
@@ -56,6 +56,6 @@ public class Cabo {
 
   @Override
   public int hashCode() {
-      return Objects.hash(nome, numero);
+      return Objects.hash(nome, numero, TempoServico);
   }
 }

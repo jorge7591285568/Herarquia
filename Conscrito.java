@@ -9,7 +9,7 @@ public class Conscrito {
     private int tempoServico;
     private Cabo imediato;
 
-    public Conscrito(String nome, int numero) {
+    public Conscrito(String nome, int numero,int tempoServico) {
         this.nome = nome;
         this.numero = numero;
         this.tempoServico = 0;
@@ -55,6 +55,6 @@ public class Conscrito {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, numero);
+        return Objects.hash(nome, numero, tempoServico);
     }
 }
